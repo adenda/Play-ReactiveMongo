@@ -2,7 +2,7 @@ import sbt._
 import sbt.Keys._
 
 object BuildSettings {
-  val buildVersion = "0.12.0-SNAPSHOT"
+  val buildVersion = "0.12.0-SNAPSHOT-ADENDA"
 
   val buildSettings = Defaults.defaultSettings ++ Seq(
     organization := "org.reactivemongo",
@@ -44,18 +44,18 @@ object Publish {
         <url>git://github.com/ReactiveMongo/Play-ReactiveMongo.git</url>
         <connection>scm:git://github.com/ReactiveMongo/Play-ReactiveMongo.git</connection>
       </scm>
-      <developers>
-        <developer>
-          <id>sgodbillon</id>
-          <name>Stephane Godbillon</name>
-          <url>http://stephane.godbillon.com</url>
-        </developer>
-        <developer>
-          <id>mandubian</id>
-          <name>Pascal Voitot</name>
-          <url>http://mandubian.com</url>
-        </developer>
-      </developers>))
+        <developers>
+          <developer>
+            <id>sgodbillon</id>
+            <name>Stephane Godbillon</name>
+            <url>http://stephane.godbillon.com</url>
+          </developer>
+          <developer>
+            <id>mandubian</id>
+            <name>Pascal Voitot</name>
+            <url>http://mandubian.com</url>
+          </developer>
+        </developers>))
 }
 
 object Format {
@@ -125,11 +125,11 @@ object Play2ReactiveMongoBuild extends Build {
         "Typesafe repository snapshots" at "http://repo.typesafe.com/typesafe/snapshots/"
       ),
       libraryDependencies ++= Seq(
-        ("org.reactivemongo" %% "reactivemongo" % "0.12.0-SNAPSHOT" cross CrossVersion.binary).
+        ("org.reactivemongo" %% "reactivemongo" % "0.12.0-SNAPSHOT-ADENDA" cross CrossVersion.binary).
           exclude("io.netty", "netty"). // provided by Play
           exclude("com.typesafe.akka", "*").
           exclude("com.typesafe.play", "*"),
-        "org.reactivemongo" %% "reactivemongo-play-json" % "0.11.9-1" cross CrossVersion.binary,
+        "org.reactivemongo" %% "reactivemongo-play-json" % "0.12.0-SNAPSHOT-ADENDA" cross CrossVersion.binary,
         "io.netty" % "netty" % "3.10.4.Final" % "provided",
         "com.typesafe.play" %% "play" % "2.4.6" % "provided" cross CrossVersion.binary,
         "com.typesafe.play" %% "play-test" % "2.4.6" % Test cross CrossVersion.binary,
@@ -186,5 +186,5 @@ object Travis {
   val settings = Seq(
     Travis.travisSnapshotBranches := Seq("master"),
     commands += Travis.travisCommand)
-  
+
 }

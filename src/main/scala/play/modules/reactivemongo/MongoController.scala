@@ -117,6 +117,9 @@ trait MongoController extends Controller { self: ReactiveMongoComponents =>
   /** Returns the default database (as specified in `application.conf`). */
   def db = reactiveMongoApi.db
 
+  /** Returns the default database (as specified in `application.conf`). */
+  def database = reactiveMongoApi.database
+
   val CONTENT_DISPOSITION_ATTACHMENT = "attachment"
   val CONTENT_DISPOSITION_INLINE = "inline"
 

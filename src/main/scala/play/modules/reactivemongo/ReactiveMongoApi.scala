@@ -116,10 +116,10 @@ final class DefaultReactiveMongoApi @Inject() (
     connection(dbName)
   }
 
-  lazy val database: Future[DefaultDB] = {
+  def database: Future[DefaultDB] = {
     import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
-    Logger.info("ReactiveMongoApi starting...")
+    //Logger.info("ReactiveMongoApi starting...")
 
     connection.database(dbName)
   }
